@@ -1,0 +1,31 @@
+class Solution:
+    def trap(self, height):
+        if not height:
+            return 0
+
+        l = 0
+        r = len(height)-1
+        ans = 0
+
+
+        left_max = height[l]
+        right_max = height[r]
+
+        while l<r:
+            if left_max > right_max:
+                r-=1
+                right_max = max(right_max,height[r])
+                ans = ans+right_max-height[r]
+            else:
+                l+=1
+                left_max = max(left_max,height[l])
+                ans = ans+left_max-height[l]
+
+        return ans
+    
+    
+
+
+            
+
+        
