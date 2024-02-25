@@ -1,10 +1,14 @@
-def selection_sort(aray):
-    for i in range(0,len(aray)):
-        for j in range(0,len(aray)):
-            if aray[i] < aray[j]:
-                aray[i],aray[j] = aray[j],aray[i]
-    return aray
+def selection_sort(array):
+    for i in range(0,len(array)-1):
+        mini = array[i]
+        for j in range(i+1,len(array)):
+            if array[j] < mini:
+                min_index = j
+                mini = array[j]
+                array[j],array[i] = array[i],array[j]
+    return array
+    
 
 
-aray = [3,2,9,2,0,1]
-print(selection_sort(aray))
+print(selection_sort([1,6,5,11,10,9]))
+    
